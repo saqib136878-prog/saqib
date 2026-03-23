@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For You ❤️</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial;
+      background: #ffe6f0;
+      padding: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    #noBtn {
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1 id="text">Hey… I made something for you ❤️</h1>
+<button onclick="next()">Start</button>
+
+<div id="choices" style="display:none;">
+  <h2>Do you love me? 😏</h2>
+  <button onclick="yes()">Yes ❤️</button>
+  <button id="noBtn" onmouseover="moveNo()">No 😜</button>
+</div>
+
+<script>
+let step = 0;
+
+const story = [
+  "It all started with a stupid question… 😭",
+  "‘Which shampoo do you use?’",
+  "And you said… Sunsilk 😂",
+  "I didn’t care about shampoo… I just wanted you to reply.",
+  "You were busy with exams… but you still replied to me.",
+  "I was a mess… but you stayed.",
+  "You became my peace.",
+  "You changed me.",
+  "And choosing you… was the best decision of my life ❤️"
+];
+
+function next() {
+  if (step < story.length) {
+    document.getElementById("text").innerText = story[step];
+    step++;
+  } else {
+    document.getElementById("text").style.display = "none";
+    document.querySelector("button").style.display = "none";
+    document.getElementById("choices").style.display = "block";
+  }
+}
+
+function moveNo() {
+  const btn = document.getElementById("noBtn");
+  btn.style.top = Math.random() * 300 + "px";
+  btn.style.left = Math.random() * 300 + "px";
+}
+
+function yes() {
+  document.body.innerHTML = "<h1>Happy Birthday, my love ❤️<br>You are my everything.</h1>";
+}
+</script>
+
+</body>
+</html>
